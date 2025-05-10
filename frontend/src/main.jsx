@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')).render(
    <ToastContainer
       autoClose={1000}
       hideProgressBar={false} 
-      position="top-right"    
+      position="bottom-right"    
       theme="light"          
     />
   </ShopContextProvider>
