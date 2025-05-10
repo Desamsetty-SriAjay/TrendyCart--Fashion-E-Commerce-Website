@@ -128,14 +128,7 @@ const ShopContextProvider = (props) => {
     getProductsData()
   },[])
 
-<<<<<<< HEAD
-  // useEffect(()=>{
-  //   if(!token && localStorage.getItem('token')){
-  //     setToken(localStorage.getItem('token'))
-  //     getUserCart(localStorage.getItem('token'))
-  //   }
-  // },[])
-// chat
+
 useEffect(() => {
   if (token) {
     getUserCart(token);
@@ -145,15 +138,6 @@ useEffect(() => {
     getUserCart(storedToken);
   }
 }, [token]);
-
-=======
-  useEffect(()=>{
-    if(!token && localStorage.getItem('token')){
-      setToken(localStorage.getItem('token'))
-      getUserCart(localStorage.getItem('token'))
-    }
-  },[])
->>>>>>> 45e276bd43406bb69bdd3c12a0b811eebf6ee3ea
 
 
   const value = {
