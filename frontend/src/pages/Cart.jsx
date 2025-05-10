@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import  { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import { assets } from "../assets/assets";
@@ -10,6 +10,17 @@ const Cart = () => {
   const { products, currency,cartItems,updateQuantity,navigate,setCartItems,backendUrl,getCartAmount} =
     useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
+  const [user, setUser] = useState(null);
+
+
+  
+  //chat
+  useEffect(() => {
+  const localUser = localStorage.getItem("user");
+  if (localUser) {
+    setUser(JSON.parse(localUser));
+  }
+}, []);
 
   useEffect(() => {
 

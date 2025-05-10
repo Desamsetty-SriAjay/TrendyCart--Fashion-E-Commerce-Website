@@ -36,7 +36,7 @@ const Login = () => {
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
-          localStorage.setItem("user", JSON.stringify(response.data.user)); // ✅ Store user here
+          localStorage.setItem("user", JSON.stringify(response.data.user));
           toast.success("Login successful!");
         } else {
           toast.error(response.data.message || "Invalid credentials");

@@ -135,9 +135,8 @@ useEffect(() => {
   } else if (localStorage.getItem('token')) {
     const storedToken = localStorage.getItem('token');
     setToken(storedToken);
-    getUserCart(storedToken);
   }
-}, [token]);
+}, []);
 
 
   const value = {
