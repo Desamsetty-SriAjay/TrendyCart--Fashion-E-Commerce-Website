@@ -6,7 +6,7 @@ import userModel from '../models/userModel.js';
 
 // to genarate a token
 const createToken=(id)=>{
-    return jwt.sign({id},process.env.JWT_SECRET)
+    return jwt.sign({id},process.env.JWT_SECRET,{ expiresIn: '1h' })
 }
 
 
@@ -88,7 +88,7 @@ const registerUser=async (req,res)=>{
         // const token=createToken(user._id);
         // res.json({success:true,token})
 
-        // chat
+        
         const token = createToken(user._id);
 res.json({
   success: true,
