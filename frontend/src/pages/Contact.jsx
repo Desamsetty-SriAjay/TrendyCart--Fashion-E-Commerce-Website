@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4 py-16">
       <img
-        src={assets.contactUs} // Replace with your actual image path
+        src={assets.contactUs} 
         alt="Contact Us"
         className="w-full max-w-md rounded-xl shadow-lg mb-8"
       />
