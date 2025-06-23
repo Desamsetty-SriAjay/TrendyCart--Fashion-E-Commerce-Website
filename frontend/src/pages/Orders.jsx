@@ -32,6 +32,25 @@ const Orders = () => {
     fetchOrders();
   }, []);
 
+  const handleDeleteOrder = async (orderId) => {
+  const token = localStorage.getItem("token");
+  const res = await axios.post(
+    `${import.meta.env.VITE_BACKEND_URL}/api/order/delete`,
+    { orderId },
+    {
+      headers: {
+        token,
+      },
+    }
+  );
+
+  if (res.data.success) {
+    setOrders((prev) => prev.filter((o) => o._id !== orderId));
+  } else {
+    alert("Failed to delete order: " + res.data.message);
+  }
+};
+
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-6">Your Orders</h2>
@@ -54,6 +73,12 @@ const Orders = () => {
             })}
           </div>
           <p className="mt-2 font-bold">Total: {currency}{order.totalAmount}</p>
+          <button
+  className="mt-3 px-4 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+  onClick={() => handleDeleteOrder(order._id)}
+>
+  Delete Order
+</button>
         </div>
       ))}
     </div>

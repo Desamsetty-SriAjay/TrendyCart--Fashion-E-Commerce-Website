@@ -47,5 +47,18 @@ const getAllOrders = async (req, res) => {
   }
 };
 
-export { placeOrder, getUserOrders, getAllOrders };
+const deleteOrder = async (req, res) => {
+  try {
+    const { orderId } = req.body;
+
+    await orderModel.findByIdAndDelete(orderId);
+
+    res.json({ success: true, message: "Order deleted successfully" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export { placeOrder, getUserOrders, getAllOrders,deleteOrder };
 
